@@ -1,0 +1,183 @@
+stackbitVersion: ~0.3.0
+ssgName: jekyll
+publishDir: _site
+dataDir: _data
+pagesDir: ''
+models:
+  categorie:
+    type: page
+    label: Categorie
+    folder: categories
+    match: '*'
+    fields:
+      - type: string
+        name: layout
+        label: Layout
+      - type: string
+        name: title
+        label: Title
+  post:
+    type: page
+    label: Post
+    folder: collections/_posts
+    match: '*'
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: datetime
+        name: date
+        label: Date
+      - type: string
+        name: layout
+        label: Layout
+      - type: list
+        name: categories
+        label: Categories
+        items:
+          type: string
+      - type: string
+        name: description
+        label: Description
+      - type: string
+        name: thumbnail
+        label: Thumbnail
+      - type: string
+        name: image
+        label: Image
+      - type: list
+        name: authors
+        label: Authors
+        items:
+          type: string
+      - type: list
+        name: tags
+        label: Tags
+        items:
+          type: string
+  page_1:
+    type: page
+    label: Page 1
+    match:
+      - about.md
+    fields:
+      - type: string
+        name: layout
+        label: Layout
+      - type: string
+        name: title
+        label: Title
+      - type: datetime
+        name: date
+        label: Date
+      - type: string
+        name: permalink
+        label: Permalink
+      - type: string
+        name: description
+        label: Description
+      - type: string
+        name: image
+        label: Image
+  page_2:
+    type: page
+    label: Page 2
+    match:
+      - categories.md
+    fields:
+      - type: string
+        name: layout
+        label: Layout
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: permalink
+        label: Permalink
+  page_3:
+    type: page
+    label: Page 3
+    match:
+      - index.md
+    fields:
+      - type: string
+        name: layout
+        label: Layout
+      - type: string
+        name: title
+        label: Title
+      - type: markdown
+        name: heading
+        label: Heading
+      - type: string
+        name: description
+        label: Description
+  authors:
+    type: data
+    label: Authors
+    file: authors.yml
+    fields:
+      - type: object
+        name: sage_kirk
+        label: Sage Kirk
+        fields:
+          - type: string
+            name: name
+            label: Name
+          - type: image
+            name: image
+            label: Image
+          - type: string
+            name: twitter
+            label: Twitter
+      - type: object
+        name: mike_vance
+        label: Mike Vance
+        fields:
+          - type: string
+            name: name
+            label: Name
+          - type: image
+            name: image
+            label: Image
+          - type: string
+            name: twitter
+            label: Twitter
+  menu:
+    type: data
+    label: Menu
+    file: menu.yml
+    fields:
+      - type: list
+        name: main
+        label: Main
+        items:
+          type: object
+          fields:
+            - type: string
+              name: name
+              label: Name
+            - type: string
+              name: url
+              label: Url
+            - type: number
+              name: weight
+              label: Weight
+              subtype: int
+  social:
+    type: data
+    label: Social
+    file: social.json
+    isList: true
+    items:
+      type: object
+      fields:
+        - type: string
+          name: name
+          label: Name
+        - type: string
+          name: link
+          label: Link
+        - type: image
+          name: image
+          label: Image
